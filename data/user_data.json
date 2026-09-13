@@ -1,0 +1,127 @@
+{
+  "target_role": "Data Engineer",
+  "skills": [
+    {
+      "name": "Python",
+      "proficiency": 0,
+      "importance": "HIGH",
+      "is_custom": false
+    },
+    {
+      "name": "SQL",
+      "proficiency": 0,
+      "importance": "HIGH",
+      "is_custom": false
+    },
+    {
+      "name": "Spark",
+      "proficiency": 0,
+      "importance": "HIGH",
+      "is_custom": false
+    },
+    {
+      "name": "Data Pipelines",
+      "proficiency": 0,
+      "importance": "HIGH",
+      "is_custom": false
+    },
+    {
+      "name": "Data Warehousing",
+      "proficiency": 0,
+      "importance": "HIGH",
+      "is_custom": false
+    },
+    {
+      "name": "Docker",
+      "proficiency": 0,
+      "importance": "MEDIUM",
+      "is_custom": false
+    },
+    {
+      "name": "Linux",
+      "proficiency": 0,
+      "importance": "MEDIUM",
+      "is_custom": false
+    },
+    {
+      "name": "Git/GitHub",
+      "proficiency": 0,
+      "importance": "HIGH",
+      "is_custom": false
+    },
+    {
+      "name": "Cloud Fundamentals",
+      "proficiency": 0,
+      "importance": "MEDIUM",
+      "is_custom": false
+    }
+  ],
+  "projects": [
+    {
+      "project_id": "1",
+      "name": "E-Commerce Sales Insights",
+      "github_url": "https://github.com/student/sales-insights",
+      "description": "Analyzed sales patterns and built interactive visual reports.",
+      "skills_used": [
+        "Python",
+        "SQL",
+        "Excel",
+        "Pandas"
+      ],
+      "topics_covered": [
+        "Data Cleaning",
+        "Aggregations",
+        "Exploratory Analysis"
+      ]
+    },
+    {
+      "project_id": "2",
+      "name": "Customer Churn Analyzer",
+      "github_url": "https://github.com/student/churn-analyzer",
+      "description": "Statistical breakdown of customer churn factors using Python and Pandas.",
+      "skills_used": [
+        "Python",
+        "Pandas",
+        "Statistics"
+      ],
+      "topics_covered": [
+        "Hypothesis Testing",
+        "Data Preprocessing"
+      ]
+    }
+  ],
+  "fundamentals": [
+    {
+      "name": "Aptitude",
+      "proficiency": 75
+    },
+    {
+      "name": "Communication",
+      "proficiency": 80
+    },
+    {
+      "name": "DSA",
+      "proficiency": 50
+    },
+    {
+      "name": "OOP",
+      "proficiency": 70
+    },
+    {
+      "name": "DBMS",
+      "proficiency": 65
+    },
+    {
+      "name": "Operating Systems",
+      "proficiency": 55
+    },
+    {
+      "name": "Computer Networks",
+      "proficiency": 45
+    },
+    {
+      "name": "Problem Solving",
+      "proficiency": 75
+    }
+  ]
+}

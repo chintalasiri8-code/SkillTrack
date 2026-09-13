@@ -1,0 +1,64 @@
+{
+  "roles": [
+    {
+      "role_id": "data_analyst",
+      "role_name": "Data Analyst",
+      "default_skills": [
+        {"name": "Python", "proficiency": 0, "importance": "HIGH", "is_custom": false},
+        {"name": "SQL", "proficiency": 0, "importance": "HIGH", "is_custom": false},
+        {"name": "Excel", "proficiency": 0, "importance": "MEDIUM", "is_custom": false},
+        {"name": "Pandas", "proficiency": 0, "importance": "HIGH", "is_custom": false},
+        {"name": "NumPy", "proficiency": 0, "importance": "MEDIUM", "is_custom": false},
+        {"name": "Statistics", "proficiency": 0, "importance": "HIGH", "is_custom": false},
+        {"name": "Data Visualization", "proficiency": 0, "importance": "MEDIUM", "is_custom": false},
+        {"name": "Power BI", "proficiency": 0, "importance": "HIGH", "is_custom": false},
+        {"name": "Communication", "proficiency": 0, "importance": "MEDIUM", "is_custom": false}
+      ]
+    },
+    {
+      "role_id": "web_developer",
+      "role_name": "Web Developer",
+      "default_skills": [
+        {"name": "HTML", "proficiency": 0, "importance": "HIGH", "is_custom": false},
+        {"name": "CSS", "proficiency": 0, "importance": "HIGH", "is_custom": false},
+        {"name": "JavaScript", "proficiency": 0, "importance": "HIGH", "is_custom": false},
+        {"name": "React.js", "proficiency": 0, "importance": "HIGH", "is_custom": false},
+        {"name": "Node.js", "proficiency": 0, "importance": "HIGH", "is_custom": false},
+        {"name": "Express.js", "proficiency": 0, "importance": "MEDIUM", "is_custom": false},
+        {"name": "MongoDB", "proficiency": 0, "importance": "MEDIUM", "is_custom": false},
+        {"name": "REST APIs", "proficiency": 0, "importance": "HIGH", "is_custom": false},
+        {"name": "Git/GitHub", "proficiency": 0, "importance": "HIGH", "is_custom": false}
+      ]
+    },
+    {
+      "role_id": "software_engineer",
+      "role_name": "Software Engineer",
+      "default_skills": [
+        {"name": "Python", "proficiency": 0, "importance": "HIGH", "is_custom": false},
+        {"name": "Java", "proficiency": 0, "importance": "HIGH", "is_custom": false},
+        {"name": "Data Structures", "proficiency": 0, "importance": "HIGH", "is_custom": false},
+        {"name": "Algorithms", "proficiency": 0, "importance": "HIGH", "is_custom": false},
+        {"name": "System Design", "proficiency": 0, "importance": "MEDIUM", "is_custom": false},
+        {"name": "SQL", "proficiency": 0, "importance": "HIGH", "is_custom": false},
+        {"name": "Git/GitHub", "proficiency": 0, "importance": "HIGH", "is_custom": false},
+        {"name": "Unit Testing", "proficiency": 0, "importance": "MEDIUM", "is_custom": false},
+        {"name": "OOP", "proficiency": 0, "importance": "HIGH", "is_custom": false}
+      ]
+    },
+    {
+      "role_id": "data_engineer",
+      "role_name": "Data Engineer",
+      "default_skills": [
+        {"name": "Python", "proficiency": 0, "importance": "HIGH", "is_custom": false},
+        {"name": "SQL", "proficiency": 0, "importance": "HIGH", "is_custom": false},
+        {"name": "Spark", "proficiency": 0, "importance": "HIGH", "is_custom": false},
+        {"name": "Data Pipelines", "proficiency": 0, "importance": "HIGH", "is_custom": false},
+        {"name": "Data Warehousing", "proficiency": 0, "importance": "HIGH", "is_custom": false},
+        {"name": "Docker", "proficiency": 0, "importance": "MEDIUM", "is_custom": false},
+        {"name": "Linux", "proficiency": 0, "importance": "MEDIUM", "is_custom": false},
+        {"name": "Git/GitHub", "proficiency": 0, "importance": "HIGH", "is_custom": false},
+        {"name": "Cloud Fundamentals", "proficiency": 0, "importance": "MEDIUM", "is_custom": false}
+      ]
+    }
+  ]
+}

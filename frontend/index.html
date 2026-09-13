@@ -1,0 +1,455 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>SkillTrack | Personal Skill & Career Readiness Tracker</title>
+  <meta name="description" content="Track your skills, prove your projects, and measure your job readiness with SkillTrack.">
+  
+  <!-- Modern Google Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Outfit:wght@500;600;700;800&display=swap" rel="stylesheet">
+  
+  <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+  <!-- Toast Notification Container -->
+  <div id="toast-container" class="toast-container"></div>
+
+  <!-- Header Navigation -->
+  <header id="main-header" class="main-header hidden">
+    <div class="header-container">
+      <div class="logo-group" id="nav-logo">
+        <div class="logo-icon">ST</div>
+        <span class="logo-text">SkillTrack</span>
+      </div>
+
+      <nav class="nav-links">
+        <button class="nav-btn active" data-view="dashboard">
+          <svg class="nav-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M3 9l9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"></path><polyline points="9 22 9 12 15 12 15 22"></polyline></svg>
+          Dashboard
+        </button>
+        <button class="nav-btn" data-view="skills">
+          <svg class="nav-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"></polygon></svg>
+          Role & Skills
+        </button>
+        <button class="nav-btn" data-view="projects">
+          <svg class="nav-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M22 19a2 2 0 0 1-2 2H4a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h5l2 3h9a2 2 0 0 1 2 2z"></path></svg>
+          Projects
+        </button>
+        <button class="nav-btn" data-view="fundamentals">
+          <svg class="nav-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M4 19.5A2.5 2.5 0 0 1 6.5 17H20"></path><path d="M6.5 2H20v20H6.5A2.5 2.5 0 0 1 4 19.5v-15A2.5 2.5 0 0 1 6.5 2z"></path></svg>
+          Placement
+        </button>
+        <button class="nav-btn" data-view="analysis">
+          <svg class="nav-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="18" y1="20" x2="18" y2="10"></line><line x1="12" y1="20" x2="12" y2="4"></line><line x1="6" y1="20" x2="6" y2="14"></line></svg>
+          Gap Analysis
+        </button>
+      </nav>
+
+      <div class="user-role-badge">
+        <span class="badge-label">Target Role:</span>
+        <span id="header-target-role" class="badge-value">Data Analyst</span>
+      </div>
+    </div>
+  </header>
+
+  <main id="app-container">
+    <!-- ========================================== -->
+    <!-- VIEW 1: LANDING PAGE -->
+    <!-- ========================================== -->
+    <section id="view-landing" class="view-section active">
+      <div class="hero-container">
+        <div class="hero-badge">🚀 Student Career Readiness Engine</div>
+        <h1 class="hero-title">SkillTrack</h1>
+        <p class="hero-tagline">Track your skills. Prove your projects. Measure your job readiness.</p>
+        <p class="hero-description">
+          A career-readiness tracker that compares your skills, projects, and placement fundamentals 
+          against the requirements of your target job role.
+        </p>
+
+        <div class="hero-actions">
+          <button id="btn-get-started" class="btn btn-primary btn-lg">
+            <span>Get Started</span>
+            <svg viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="2.5"><line x1="5" y1="12" x2="19" y2="12"></line><polyline points="12 5 19 12 12 19"></polyline></svg>
+          </button>
+        </div>
+
+        <!-- Hero Feature Highlights -->
+        <div class="hero-features-grid">
+          <div class="feature-card">
+            <div class="feature-icon">🎯</div>
+            <h3>Role Alignment</h3>
+            <p>Compare your self-assessed proficiency against industry-standard job requirements.</p>
+          </div>
+          <div class="feature-card">
+            <div class="feature-icon">📂</div>
+            <h3>Project Evidence</h3>
+            <p>Prove your technical skills through GitHub repositories and topic coverage.</p>
+          </div>
+          <div class="feature-card">
+            <div class="feature-icon">📊</div>
+            <h3>Smart Gap Analysis</h3>
+            <p>Identify strong, developing, and weak skills with actionable priority guidance.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ========================================== -->
+    <!-- VIEW 2: DASHBOARD -->
+    <!-- ========================================== -->
+    <section id="view-dashboard" class="view-section hidden">
+      <div class="dashboard-header">
+        <div>
+          <h2 class="section-title">Career Readiness Dashboard</h2>
+          <p class="section-subtitle">Real-time breakdown for your target role: <strong id="dash-role-name">Data Analyst</strong></p>
+        </div>
+        <button id="dash-change-role-btn" class="btn btn-outline">Change Role</button>
+      </div>
+
+      <!-- Main Readiness Gauge Card -->
+      <div class="overall-readiness-banner">
+        <div class="readiness-gauge-box">
+          <div class="gauge-ring" id="overall-gauge-ring" style="--score-pct: 0%;">
+            <div class="gauge-inner">
+              <span id="overall-score-val" class="gauge-score">0%</span>
+              <span class="gauge-label">OVERALL READINESS</span>
+            </div>
+          </div>
+        </div>
+
+        <div class="readiness-summary-details">
+          <h3>Job Readiness Formula</h3>
+          <p class="formula-text">
+            Overall Readiness = (Skill Readiness × 50%) + (Project Readiness × 30%) + (Placement Readiness × 20%)
+          </p>
+          
+          <div class="readiness-metrics-trio">
+            <div class="metric-mini-card" id="card-metric-skill">
+              <div class="mini-label">Skill Readiness (50%)</div>
+              <div class="mini-val" id="dash-val-skill">0%</div>
+              <div class="progress-bar-sm"><div class="progress-fill" id="dash-bar-skill" style="width: 0%;"></div></div>
+            </div>
+
+            <div class="metric-mini-card" id="card-metric-project">
+              <div class="mini-label">Project Readiness (30%)</div>
+              <div class="mini-val" id="dash-val-project">0%</div>
+              <div class="progress-bar-sm"><div class="progress-fill" id="dash-bar-project" style="width: 0%;"></div></div>
+            </div>
+
+            <div class="metric-mini-card" id="card-metric-placement">
+              <div class="mini-label">Placement Fundamentals (20%)</div>
+              <div class="mini-val" id="dash-val-placement">0%</div>
+              <div class="progress-bar-sm"><div class="progress-fill" id="dash-bar-placement" style="width: 0%;"></div></div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Dashboard Stats Row -->
+      <div class="stats-grid">
+        <div class="stat-card">
+          <div class="stat-icon">⚡</div>
+          <div class="stat-content">
+            <span class="stat-value" id="dash-stat-skills-count">0</span>
+            <span class="stat-label">Skills Tracked</span>
+          </div>
+        </div>
+        <div class="stat-card">
+          <div class="stat-icon">🚀</div>
+          <div class="stat-content">
+            <span class="stat-value" id="dash-stat-projects-count">0 / 5</span>
+            <span class="stat-label">Projects Completed</span>
+          </div>
+        </div>
+        <div class="stat-card">
+          <div class="stat-icon">🎯</div>
+          <div class="stat-content">
+            <span class="stat-value" id="dash-stat-coverage-str">0 / 0</span>
+            <span class="stat-label">Project Skill Coverage</span>
+          </div>
+        </div>
+      </div>
+
+      <!-- Grid Layout for Priorities & Overview -->
+      <div class="dashboard-grid-2col">
+        <!-- Next Priorities Card -->
+        <div class="glass-card">
+          <div class="card-header">
+            <h3>🔥 Next Priorities & Actions</h3>
+            <button class="btn-text" data-view="analysis">View Full Analysis →</button>
+          </div>
+          <ul id="dash-priorities-list" class="priorities-list">
+            <!-- Dynamic Priority Items -->
+          </ul>
+        </div>
+
+        <!-- Skills Overview Breakdown -->
+        <div class="glass-card">
+          <div class="card-header">
+            <h3>📊 Skill Breakdown</h3>
+            <button class="btn-text" data-view="skills">Edit Skills →</button>
+          </div>
+          <div class="skill-category-summary">
+            <div class="category-pill strong">
+              <span>Strong (70-100%)</span>
+              <strong id="dash-count-strong">0</strong>
+            </div>
+            <div class="category-pill developing">
+              <span>Developing (40-69%)</span>
+              <strong id="dash-count-developing">0</strong>
+            </div>
+            <div class="category-pill weak">
+              <span>Weak (0-39%)</span>
+              <strong id="dash-count-weak">0</strong>
+            </div>
+          </div>
+          <div id="dash-skills-preview-list" class="skills-preview-list">
+            <!-- Dynamic Preview -->
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ========================================== -->
+    <!-- VIEW 3: ROLE & SKILLS EDITOR -->
+    <!-- ========================================== -->
+    <section id="view-skills" class="view-section hidden">
+      <div class="section-header-bar">
+        <div>
+          <h2 class="section-title">Target Job Role & Skills</h2>
+          <p class="section-subtitle">Select a target role, add custom skills, and update your self-assessed proficiency percentages (0–100%).</p>
+        </div>
+        <div class="header-actions">
+          <button id="btn-open-custom-skill-modal" class="btn btn-secondary">+ Add Custom Skill</button>
+          <button id="btn-save-skills" class="btn btn-primary">Save Skill Proficiencies</button>
+        </div>
+      </div>
+
+      <!-- Role Selector Strip -->
+      <div class="glass-card role-selector-card">
+        <label for="role-select" class="field-label">Target Role Template:</label>
+        <div class="role-select-wrapper">
+          <select id="role-select" class="form-control select-control">
+            <!-- Dynamic options -->
+          </select>
+          <button id="btn-apply-role" class="btn btn-outline">Switch Role Template</button>
+        </div>
+      </div>
+
+      <!-- Skills Table / List Container -->
+      <div class="glass-card">
+        <div class="card-header">
+          <h3>Required & Custom Skills (<span id="skills-count-badge">0</span>)</h3>
+          <span class="legend-text">70-100% = Strong | 40-69% = Developing | 0-39% = Weak</span>
+        </div>
+
+        <div id="skills-list-container" class="skills-editor-grid">
+          <!-- Dynamic Skill Rows -->
+        </div>
+      </div>
+    </section>
+
+    <!-- ========================================== -->
+    <!-- VIEW 4: PROJECTS MANAGER -->
+    <!-- ========================================== -->
+    <section id="view-projects" class="view-section hidden">
+      <div class="section-header-bar">
+        <div>
+          <h2 class="section-title">Project Evidence & Skill Coverage</h2>
+          <p class="section-subtitle">Add up to 5 projects with mandatory GitHub links to prove your skill mastery.</p>
+        </div>
+        <button id="btn-open-project-modal" class="btn btn-primary">+ Add Project (<span id="proj-counter-badge">0/5</span>)</button>
+      </div>
+
+      <!-- Project Skill Coverage Banner -->
+      <div class="glass-card coverage-summary-card">
+        <div class="coverage-header">
+          <div>
+            <h3>Project Skill Coverage: <span id="proj-coverage-pct">0%</span></h3>
+            <p id="proj-coverage-sub">Demonstrated 0 of 0 target skills across your projects.</p>
+          </div>
+          <div class="progress-bar-lg">
+            <div class="progress-fill" id="proj-coverage-fill" style="width: 0%;"></div>
+          </div>
+        </div>
+        <div id="proj-demonstrated-tags" class="demonstrated-tags-container">
+          <!-- Skill Tags -->
+        </div>
+      </div>
+
+      <!-- Projects List Grid -->
+      <div id="projects-grid" class="projects-grid">
+        <!-- Dynamic Project Cards -->
+      </div>
+    </section>
+
+    <!-- ========================================== -->
+    <!-- VIEW 5: PLACEMENT FUNDAMENTALS -->
+    <!-- ========================================== -->
+    <section id="view-fundamentals" class="view-section hidden">
+      <div class="section-header-bar">
+        <div>
+          <h2 class="section-title">Placement Fundamentals</h2>
+          <p class="section-subtitle">Rate your core placement competencies (0–100%) to measure interview preparedness.</p>
+        </div>
+        <button id="btn-save-fundamentals" class="btn btn-primary">Save Fundamentals</button>
+      </div>
+
+      <div class="placement-banner glass-card">
+        <div class="placement-score-box">
+          <span class="placement-val" id="placement-overall-val">0%</span>
+          <span class="placement-lbl">Placement Readiness</span>
+        </div>
+        <div class="placement-desc">
+          <p>Calculated as the unweighted average of your core computer science and career fundamentals.</p>
+        </div>
+      </div>
+
+      <div class="glass-card">
+        <div id="fundamentals-editor-grid" class="fundamentals-editor-grid">
+          <!-- Dynamic Fundamental Inputs -->
+        </div>
+      </div>
+    </section>
+
+    <!-- ========================================== -->
+    <!-- VIEW 6: GAP ANALYSIS & RECOMMENDATIONS -->
+    <!-- ========================================== -->
+    <section id="view-analysis" class="view-section hidden">
+      <div class="section-header-bar">
+        <div>
+          <h2 class="section-title">Skill Gap Analysis & Recommendations</h2>
+          <p class="section-subtitle">Detailed breakdown of why your score is calculated this way and what to improve next.</p>
+        </div>
+      </div>
+
+      <!-- Recommendations Box -->
+      <div class="glass-card recommendations-card">
+        <h3 class="card-title">💡 Actionable Recommendation Plan</h3>
+        <ul id="analysis-general-recs" class="analysis-recs-list">
+          <!-- Dynamic recommendations -->
+        </ul>
+      </div>
+
+      <!-- Skill Categories Matrix -->
+      <div class="gap-matrix-grid">
+        <!-- Priority Skills Column -->
+        <div class="glass-card">
+          <div class="card-header">
+            <h3>🔥 Priority Skills Matrix</h3>
+            <span class="sub-badge">Action Required</span>
+          </div>
+          <div id="analysis-priority-list" class="analysis-list">
+            <!-- Dynamic items -->
+          </div>
+        </div>
+
+        <!-- Strong / Weak Breakdown Column -->
+        <div class="glass-card">
+          <div class="card-header">
+            <h3>⚖️ Skill Proficiency Categorization</h3>
+          </div>
+          
+          <h4 class="category-title text-strong">Strong Skills (70-100%)</h4>
+          <div id="analysis-strong-list" class="analysis-mini-list"></div>
+
+          <h4 class="category-title text-developing">Developing Skills (40-69%)</h4>
+          <div id="analysis-developing-list" class="analysis-mini-list"></div>
+
+          <h4 class="category-title text-weak">Weak Skills (0-39%)</h4>
+          <div id="analysis-weak-list" class="analysis-mini-list"></div>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <!-- ========================================== -->
+  <!-- MODALS -->
+  <!-- ========================================== -->
+  <!-- 1. Add Custom Skill Modal -->
+  <div id="modal-add-skill" class="modal-overlay hidden">
+    <div class="modal-card">
+      <div class="modal-header">
+        <h3>Add Custom Skill</h3>
+        <button class="modal-close" data-modal="modal-add-skill">&times;</button>
+      </div>
+      <form id="form-add-skill">
+        <div class="form-group">
+          <label for="input-skill-name" class="field-label">Skill Name *</label>
+          <input type="text" id="input-skill-name" class="form-control" placeholder="e.g. TypeScript, Docker" required>
+        </div>
+
+        <div class="form-group">
+          <label for="input-skill-prof" class="field-label">Initial Proficiency Percentage (0–100%)</label>
+          <input type="number" id="input-skill-prof" class="form-control" min="0" max="100" value="50" required>
+        </div>
+
+        <div class="form-group">
+          <label for="input-skill-imp" class="field-label">Role Importance</label>
+          <select id="input-skill-imp" class="form-control select-control">
+            <option value="HIGH">High Importance</option>
+            <option value="MEDIUM" selected>Medium Importance</option>
+            <option value="LOW">Low Importance</option>
+          </select>
+        </div>
+
+        <div class="modal-actions">
+          <button type="button" class="btn btn-outline modal-close" data-modal="modal-add-skill">Cancel</button>
+          <button type="submit" class="btn btn-primary">Add Skill</button>
+        </div>
+      </form>
+    </div>
+  </div>
+
+  <!-- 2. Add/Edit Project Modal -->
+  <div id="modal-project" class="modal-overlay hidden">
+    <div class="modal-card modal-lg">
+      <div class="modal-header">
+        <h3 id="modal-project-title">Add Project</h3>
+        <button class="modal-close" data-modal="modal-project">&times;</button>
+      </div>
+      <form id="form-project">
+        <input type="hidden" id="input-proj-id" value="">
+
+        <div class="form-group">
+          <label for="input-proj-name" class="field-label">Project Name *</label>
+          <input type="text" id="input-proj-name" class="form-control" placeholder="e.g. Sales Insights Dashboard" required>
+        </div>
+
+        <div class="form-group">
+          <label for="input-proj-github" class="field-label">GitHub Repository URL * (Mandatory)</label>
+          <input type="url" id="input-proj-github" class="form-control" placeholder="https://github.com/username/repository" required>
+          <span class="field-help">Projects without a valid GitHub link cannot be saved.</span>
+        </div>
+
+        <div class="form-group">
+          <label for="input-proj-desc" class="field-label">Short Description</label>
+          <textarea id="input-proj-desc" class="form-control" rows="2" placeholder="Brief explanation of what you built and outcomes achieved."></textarea>
+        </div>
+
+        <div class="form-group">
+          <label class="field-label">Skills Demonstrated (Select from your required skills):</label>
+          <div id="modal-proj-skills-checkboxes" class="checkbox-grid">
+            <!-- Dynamic Skill Checkboxes -->
+          </div>
+        </div>
+
+        <div class="form-group">
+          <label for="input-proj-topics" class="field-label">Topics Covered (Comma separated)</label>
+          <input type="text" id="input-proj-topics" class="form-control" placeholder="e.g. Data Cleaning, Exploratory Analysis, Visualization">
+        </div>
+
+        <div class="modal-actions">
+          <button type="button" class="btn btn-outline modal-close" data-modal="modal-project">Cancel</button>
+          <button type="submit" class="btn btn-primary" id="btn-submit-project">Save Project</button>
+        </div>
+      </form>
+    </div>
+  </div>
+
+  <script src="js/app.js"></script>
+</body>
+</html>
