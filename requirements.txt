@@ -1,0 +1,7 @@
+# SkillTrack - Technical Requirements
+# ============================================================
+# ZERO external dependencies required!
+# SkillTrack is built using Python's standard library (http.server, json, urllib, unittest).
+# 
+# Minimum Python Version: 3.8+
+# No 'pip install' needed.

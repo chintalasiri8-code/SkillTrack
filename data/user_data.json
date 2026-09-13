@@ -1,58 +1,58 @@
 {
-  "target_role": "Data Engineer",
+  "target_role": "Web Developer",
   "skills": [
     {
-      "name": "Python",
+      "name": "HTML",
       "proficiency": 0,
       "importance": "HIGH",
       "is_custom": false
     },
     {
-      "name": "SQL",
+      "name": "CSS",
       "proficiency": 0,
       "importance": "HIGH",
       "is_custom": false
     },
     {
-      "name": "Spark",
+      "name": "JavaScript",
       "proficiency": 0,
       "importance": "HIGH",
       "is_custom": false
     },
     {
-      "name": "Data Pipelines",
+      "name": "React.js",
       "proficiency": 0,
       "importance": "HIGH",
       "is_custom": false
     },
     {
-      "name": "Data Warehousing",
+      "name": "Node.js",
       "proficiency": 0,
       "importance": "HIGH",
       "is_custom": false
     },
     {
-      "name": "Docker",
+      "name": "Express.js",
       "proficiency": 0,
       "importance": "MEDIUM",
       "is_custom": false
     },
     {
-      "name": "Linux",
+      "name": "MongoDB",
       "proficiency": 0,
       "importance": "MEDIUM",
+      "is_custom": false
+    },
+    {
+      "name": "REST APIs",
+      "proficiency": 0,
+      "importance": "HIGH",
       "is_custom": false
     },
     {
       "name": "Git/GitHub",
       "proficiency": 0,
       "importance": "HIGH",
-      "is_custom": false
-    },
-    {
-      "name": "Cloud Fundamentals",
-      "proficiency": 0,
-      "importance": "MEDIUM",
       "is_custom": false
     }
   ],
@@ -88,12 +88,27 @@
         "Hypothesis Testing",
         "Data Preprocessing"
       ]
+    },
+    {
+      "project_id": "3",
+      "name": "SkillTrack",
+      "github_url": "https://github.com/chintalasiri8-code/SkillTrack",
+      "description": "",
+      "skills_used": [
+        "HTML",
+        "CSS",
+        "JavaScript",
+        "React.js",
+        "REST APIs",
+        "Git/GitHub"
+      ],
+      "topics_covered": []
     }
   ],
   "fundamentals": [
     {
       "name": "Aptitude",
-      "proficiency": 75
+      "proficiency": 41
     },
     {
       "name": "Communication",
@@ -101,11 +116,11 @@
     },
     {
       "name": "DSA",
-      "proficiency": 50
+      "proficiency": 77
     },
     {
       "name": "OOP",
-      "proficiency": 70
+      "proficiency": 44
     },
     {
       "name": "DBMS",
@@ -113,7 +128,7 @@
     },
     {
       "name": "Operating Systems",
-      "proficiency": 55
+      "proficiency": 89
     },
     {
       "name": "Computer Networks",

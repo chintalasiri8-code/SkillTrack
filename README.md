@@ -148,22 +148,39 @@ SkillTrack/
 
 ---
 
-## ⚡ How to Run SkillTrack
+## ⚡ How to Run SkillTrack (GitHub Quick Start)
 
 ### Prerequisites
-- Python 3.8+ installed.
-- Any standard web browser (Chrome, Firefox, Edge, Safari).
+- **Python 3.8+** installed ([Download Python](https://www.python.org/downloads/)).
+- **Zero Third-Party Dependencies**: No `pip install` required! Uses Python's built-in standard library only.
+- Any modern web browser (Chrome, Firefox, Edge, Safari).
 
-### Steps:
-1. Open terminal inside the project directory (`d:\SkillTrack`).
-2. Start the local Python server:
+### 🚀 Quick Start (Clone & Run)
+
+1. **Clone the repository**:
    ```bash
-   python backend/main.py
+   git clone https://github.com/chintalasiri8-code/SkillTrack.git
+   cd SkillTrack
    ```
-3. Open your browser and navigate to:
-   ```
-   http://localhost:8000
-   ```
+
+2. **Run the application**:
+   - **Cross-Platform (Any OS)**:
+     ```bash
+     python run.py
+     ```
+   - **Windows (1-Click)**:
+     Double-click `run.bat` or run in CMD:
+     ```cmd
+     run.bat
+     ```
+   - **macOS / Linux (1-Click)**:
+     ```bash
+     chmod +x run.sh
+     ./run.sh
+     ```
+
+3. **Open in Browser**:
+   Open [http://localhost:8000](http://localhost:8000) in your web browser.
 
 ---
 
